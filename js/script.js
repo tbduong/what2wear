@@ -13,7 +13,6 @@ $(document).ready(function() {
 
 //success function
   function success(position) {
-
       Geo.lat = position.coords.latitude;
       Geo.long = position.coords.longitude;
 
@@ -24,9 +23,6 @@ $(document).ready(function() {
 
       var api = "https://api.openweathermap.org/data/2.5/weather?lat="+
       lat + "&" + "lon=" + long + "&APPID=14fb5987c09b2057723e8b79a60db89b";
-      console.log(api);
-
-      $('#coordinates').html(coordinates);
 
       $.ajax({
         url: api,
@@ -37,31 +33,38 @@ $(document).ready(function() {
 
           var kelvToF = (9/5) - 459.67,
           location = data.name,
-          temp = (data.main.temp - 273.25) * 1.8 + 32,
-          lo = (data.main.temp_min - 273.25) * 1.8 + 32,
-          hi = (data.main.temp_max - 273.25) * 1.8 + 32;
+          temp = Math.floor((data.main.temp - 273.25) * 1.8 + 32),
+          lo = Math.floor((data.main.temp_min - 273.25) * 1.8 + 32),
+          hi = Math.floor((data.main.temp_max - 273.25) * 1.8 + 32);
 
         console.log(temp + "," + lo + "," + hi);
 
-        var tempArray = [temp, lo, hi],
-        arr = [];
-        tempArray.forEach(function(t){
-          t.toFixed(1);
-          arr.push(t);
-          console.log(arr);
-        });
-
+        // var tempArray = [temp, lo, hi],
+        // arr = [];
+        // tempArray.forEach(function(t){
+        //   far= Math.floor(t);
+        //   arr.push(far);
+        //   console.log(arr);
+        // });
+        $('#location').html(location);
         $('#temperature').html(temp);
         $('#lo').html(lo);
         $('#hi').html(hi);
+
+
+
+
+
+
+
         },
         error: function(msg) {
           console.log("Sorry! Unable to fetch data.");
         }
       });
 
-$('.reload').on('click', success);
-success();
+      $('.reload').on('click', success);
+      success();
 
 
 
