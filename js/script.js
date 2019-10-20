@@ -79,3 +79,19 @@ $(document).ready(function() {
   }
 
 });
+
+window.onscroll = function() {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80){
+    $(".nav-sec").css("height", "20px");
+    $(".logo-title").css("margin-top", "-10px");
+    $(".logo-title").css("font-size", "15px");
+  } else {
+      $(".nav-sec").css("height", "40px");
+      $(".logo-title").css("margin-top", "0");
+      $(".logo-title").css("font-size", "20px");
+  }
+}

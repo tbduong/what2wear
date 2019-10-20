@@ -1,10 +1,111 @@
 html,
 body {
+  background: #7bb2bf;
+  color: #fff;
   font-family: "roboto", sans-serif;
+  margin: auto;
+  position: relative;
+}
+
+a {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.block {
+  border: 2px solid #fff;
+  padding: 30px;
+  background: #acc3cc;
+  border-radius: 5px;
+  margin: 0 auto 20px;
+  text-align: center;
+  width: 50%;
+}
+
+.container {
+  display: block;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/*/////Font/Text/////*/
+#temperature {
+  font-size: 40px;
+  opacity: 0.8;
+}
+#lo, #hi {
+  opacity: 0.8;
+}
+
+/*/////Navigation/////*/
+.logo-title {
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+.nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  transition: 0.3s ease;
+  width: 100%;
+  z-index: 999;
+}
+
+.nav-sec {
+  background: #acc3cc;
+  display: inline-block;
+  height: 40px;
+  padding: 20px 0 5px;
+  position: relative;
+  transition: 0.3s ease;
+  text-align: center;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+}
+
+h1.section-header {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
 #temperature:after,
 #lo:after,
 #hi:after {
   content: "\2109";
+}
+
+#weather {
+  margin-top: 100px;
+}
+#wear .block li {
+  list-style: disc;
+  text-align: left;
+}
+
+.temp-main {
+  display: block;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.temp-img {
+  display: block;
+  max-width: 150px;
+  margin: auto;
+}
+
+@media screen and (max-width: 425px) {
+  #weather {
+    margin-top: 50x;
+  }
+  .block {
+    width: 70%;
+  }
 }
